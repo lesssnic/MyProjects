@@ -6,24 +6,28 @@
     <title>Federal Income Tax 2021 Tester</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <script src="./assets/js/app.js"></script> 
-    <script>
-
-let paragraph = document.querySelector('p');
-paragraph.textContent = 'Здесь был Кекс. Мяу!';
-
-    </script>
-    
+ 
 </head>
-<body >
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nulla magni iste maxime corrupti dignissimos illum temporibus, similique aspernatur facere iusto hic voluptatibus vel fugiat modi! Aliquid architecto ducimus magnam debitis!</p>
+<body onload="taxrate()">
     <div class="container mt-5">
 
         <h1 class='mb-3'>USA Federal Income Tax 2022 for Single | Tester</h1>
 
-        <div class="mb-3 row">
+        <div  class="mb-3 row">
             <label for="staticEmail" class="col-sm-2 col-form-label">Your Income (in USD)</label>
             <div class="col-sm-10">
-              <input type="number" class="form-control" id="incomeSum" value="50000" min='0' max='9999999999999999'>
+              <input  type="number" oninput='taxrate()' class="form-control" id="incomeSum" value="50000" min='0' max='9999999999999999'>
+            </div>
+          </div>
+          <div  class="mb-3 row">
+            <label for="staticEmail" class="col-sm-2 col-form-label">Your State</label>
+            <div class="col-sm-10">
+              <select name="options" id="social" oninput="taxrate">
+                <option value="single">single</option>
+                <option value="household">household</option>
+                <option value="widow">widow</option>
+                <option value="separately">separately</option>
+              </select>
             </div>
           </div>
           <div class="mb-3 row">
