@@ -19,7 +19,7 @@ function taxrate(){
         income = 0;
     }
     let state = single;
-  //  console.log(state);
+  //console.log(state);
     let incomeT = income;
 
     for (i = 0; i < rate.length; i++ ) {
@@ -31,13 +31,11 @@ function taxrate(){
         }else {
             
             tax = Math.round((tax + (incomeT * rate[i])/100)*100)/100;
-            console.log(tax);
+    //      console.log(tax);
             break;
         }
     }
-    console.log(tax);
-
     return taxSum.innerHTML = tax + '  USD';
 }
-//console.log( 'Налоги:', taxrate(679886754) ,'USD');
+
 
