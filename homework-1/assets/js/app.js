@@ -6,12 +6,18 @@ let household   = [0, 14201, 54201, 86351, 164901, 209401, 523600];
 let widow       = [0, 19901, 81051, 172751, 329851, 418851, 628300];
 let separately  = [0, 9951, 40526, 86376, 164926, 209426, 314151];
 
-
+let singleDeduction      = 12550;
+let householdDeduction   = 18800;
+let widowDeduction       = 25100;
+let separatelyDeduction  = 12550;
 
 
 function taxrate(){
     let tax = 0;
-    let income = +incomeSum.value;
+    let income = +incomeSum.value - singleDeduction;
+    if (income < 0){
+        income = 0;
+    }
     let state = single;
   //  console.log(state);
     let incomeT = income;
