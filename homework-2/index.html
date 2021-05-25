@@ -8,9 +8,28 @@
     <script src="./assets/js/ikao.js"></script>
     <script src="./assets/js/numbers.js"></script>
 
-    <title>Document</title>
+    <title>Homework-02</title>
 </head>
 <body>
-    <h1>Hi Anton!</h1>
+    <div>
+        <h1>Глоссия</h1>
+        <div>
+            <form action="">
+                <label for="inputData">Ввведите слово латинскими буквами + цифры</label>
+                <input type="text" oninput="loadIkao()" id='inputData' placeholder="input your data">
+            </form>
+                <output id="outputData">-</output>
+        </div>
+    </div>
+    <div>
+        <h1>Нумерология</h1>
+        <div>
+            <form action="">
+                <label for="inputNumber">Ввведите цифры</label>
+                <input type="number" oninput="loadNumber()" id='inputNumber' placeholder="your numbers" min="0" max="999999999">
+            </form>
+                <output id="outputNumber">-</output>
+        </div>
+    </div>
 </body>
 </html>

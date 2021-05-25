@@ -15,7 +15,9 @@ let arrNumberWords = [
 
 let arrNumberWordsExpand = ['десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать', 'пятнадцать', 'шестнадцать', 'семнадцать', 'восемнадцать', 'девятнадцать'];
 
-let num = '419000';
+function loadNumber() {
+
+let num = inputNumber.value;
 
 let arr = num.split('');
 
@@ -31,8 +33,7 @@ for (i = 0; i < arr.length; i++) {
         arrWords.push('');
     } else {
     arrWords.push(arrNumberWords[+arr[i]][i]);
-    };
- //   console.log(arrWords);
+    }
 }
 
 if (+arr[1] == 1 && +arr[0] > 0) {
@@ -59,11 +60,14 @@ if (+arr[6] == 0 && (+arr[7] > 0 || +arr[8] > 0)) {
     arrWords.splice(7, 0, 'миллионов');
 }
 
-console.log(arrWords);
-
 arrWords = arrWords.reverse();
 
 let strNumWords = arrWords.join(' ');
 
-console.log(strNumWords);
+// console.log(strNumWords);
 
+outputNumber.value = strNumWords;
+    if ( +inputNumber.value > 999999999 ) {
+        outputNumber.value = 'Серьёзно? У Вас есть миллиард?';
+    }
+}
