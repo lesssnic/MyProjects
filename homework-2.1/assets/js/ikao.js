@@ -39,33 +39,33 @@ let ikao = {
     9	:	'Nine ',
     '.'	:	'Point ',
     ' ' :   'Space ',
-//    00	:	'Hundred',
-//    000	:	'Thousand',
     '-'	:	'Dash '
-
 }
 
 function loadIkao() {
-let str = inputData.value;
 
-strUpperCase = str.toUpperCase();
-
-// console.log(strUpperCase);
+let strUpperCase = inputData.value.toUpperCase();
 
 let strWords = '';
 
 for ( i = 0; i < strUpperCase.length; i++ ) {
 
-    strWords = strWords + ikao[strUpperCase[i]];
+    if (ikao.hasOwnProperty(strUpperCase[i])) {
+        
+        strWords = strWords + ikao[strUpperCase[i]];
 
-}
- // console.log(strWords);
-outputData.value = strWords;
+    }else {
+        
+        strWords = strWords ;
 
-    for ( i = 0; i < strUpperCase.length; i++ ) {
-        if (ikao.hasOwnProperty(strUpperCase[i])) {
-            //console.log('Yes')
-        }else {outputData.value = 'Вы ввели недопустимый символ';}
+        let temp = strUpperCase.split('');
 
+            let tempt = temp.splice(0, temp.length - 1);
+
+            tempt = tempt.join('');
+            
+            inputData.value = `${tempt}`;
     }
+}
+     outputData.value = strWords;
 }
