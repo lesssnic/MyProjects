@@ -1,30 +1,42 @@
 
 
-let inn = '3160511137';
+
+
+function validateInn(){
+
+let inn = innCode.value;
 
 let birthdayPart = +inn.slice(0, 5);
 
-let x = 0;
+let k = 0;
 
 for (i = 0; i < inn.length - 1; i++){
 
     let control = [-1, 5, 7, 9, 4, 6, 10 , 5, 7];
 
-    x += +inn[i] * control[i];
+    k += +inn[i] * control[i];
 }
 
-let kn = (x%11)%10;
+let kn = (k%11)%10;
 
-if (kn == +inn[inn.length-1]){
-    console.log('Код валиден');
-}else console.log('Ошибка в коде');
+let sex = 0;
 
-if (+inn[inn.length-2]%2 == 1){
-    console.log('Мужчина');
-}else console.log('Женщина');
+let valid = 0;
 
 let ms = birthdayPart * 86400000 - 2209075200000;
 
 let birthday = new Date(ms);
 
-console.log(birthday);
+if (kn == +inn[inn.length-1]){
+    valid = 'Код валиден';
+    if (+inn[inn.length-2]%2 == 1){
+        sex = 'Мужчина';
+    }else sex = 'Женщина';
+    resultValidation.innerHTML = `<tr><th>${inn}</th><th>${valid}</th><th>${sex}</th><th>${birthday}</th></tr>`;
+}else resultValidation.innerHTML = `<tr><th>${inn}</th><th>Ошибка в коде</th><th></th><th></th></tr>`;
+
+
+
+    
+}
+

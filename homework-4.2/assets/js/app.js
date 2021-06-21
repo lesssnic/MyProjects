@@ -1,8 +1,8 @@
 
 
-let bankCard = '30173860598837';
+//let bankCard = '30173860598837';
 
-function cardsValidator(cardNumber){
+function cardsValidator(cardNumber = bankCreditCardNumber.value){
 
 let bankId = cardNumber.slice(0, 2);
 
@@ -19,9 +19,16 @@ let bankId = cardNumber.slice(0, 2);
 
     if (sumCardNumber%10==0){
         validData = 'Карта валидна  ' + bankIdDetect(bankId);
-    }else validData = 'В номере карты ошибка';
+        resultValidationCard.innerHTML = `<tr><th>${cardNumber}</th><th>Карта валидна</th><th>${bankIdDetect(bankId)}</th></tr>`;
+    }else{ 
+        
+        validData = 'В номере карты ошибка';
+        resultValidationCard.innerHTML = `<tr><th>${cardNumber}</th><th>Карта НЕ валидна</th><th></th></tr>`;
+    }
 
-    return validData;
+    
+
+
 
 };
 
@@ -51,4 +58,4 @@ function bankIdDetect(id){
     }
     
 };
-console.log(cardsValidator(bankCard));
+//console.log(cardsValidator());
